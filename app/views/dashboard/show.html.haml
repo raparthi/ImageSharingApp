@@ -1,0 +1,10 @@
+= link_to "New Album", new_album_path
+
+%div
+  - @albums.each do |album|
+    %p
+      = link_to album.name, album_path(album)
+    %p
+      = album.created_at
+    %p
+      = album.user.email
