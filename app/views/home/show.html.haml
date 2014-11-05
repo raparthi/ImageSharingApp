@@ -1,8 +1,18 @@
--@photos.each do |photo|
-  %div
-    %img{ src: photo.image_url, style: "height:100px;width:100px;"}
-    %p
-      = photo.tag_line
-      = photo.created_at
-      = photo.album.user.name
+.col-xs-12.col-sm-9
+  %p.pull-right.visible-xs
+    %button.btn.btn-primary.btn-xs{"data-toggle" => "offcanvas", :type => "button"} Toggle nav
+  .row
+    -@photos.each do |photo|
+      .col-xs-6.col-lg-4
+        %img{ src: photo.image_url, style: "height:200px;width:250px;", title: photo.tag_line}
+        %p
+          = photo.created_at
+        %p
+          Uploaded by
+          = photo.album.user.name
+
+
+
+
+
 

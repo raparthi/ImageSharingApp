@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'home#show'
 
   resource :dashboard, controller: :dashboard
+  resources :users
+
   resources :albums do
-  resources :photos
+    resources :photos
   end
 end

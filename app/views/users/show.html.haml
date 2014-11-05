@@ -1,0 +1,18 @@
+.col-xs-12
+  %h1
+    All Albums of
+    = @user.name
+.col-xs-12.col-sm-9
+  %p.pull-right.visible-xs
+    %button.btn.btn-primary.btn-xs{"data-toggle" => "offcanvas", :type => "button"} Toggle nav
+  .row
+    - @albums.each do |album|
+      .col-xs-6.col-lg-4.album{"data-link"=>  album_path(album)}
+        %p
+          Album Name:
+          = album.name
+        %p
+          = album.created_at
+        %p
+          Owner:
+          = album.user.name

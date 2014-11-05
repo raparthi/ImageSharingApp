@@ -5,6 +5,7 @@ class AlbumsController < ApplicationController
 
  def create
    @album = current_user.albums.build(album_params)
+
    if @album.save
      redirect_to dashboard_path, notice: 'Album Created'
    else

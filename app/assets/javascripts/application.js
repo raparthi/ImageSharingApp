@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+
+$(document).ready(function(){
+  $('.album').click(function(){
+    window.location = $(this).data("link");
+  });
+});

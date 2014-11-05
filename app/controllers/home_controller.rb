@@ -8,6 +8,7 @@ class HomeController < ActionController::Base
       redirect_to dashboard_path
     else
       @photos = Photo.order(created_at: :desc).limit(25)
+      @users = User.all
     end
   end
 end

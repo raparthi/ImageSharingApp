@@ -1,20 +1,40 @@
 = link_to "New Album", new_album_path
 
-%div
-  My Albums
-  - @albums.each do |album|
-    %p
-      = link_to album.name, album_path(album)
-    %p
-      = album.created_at
-    %p
-      = album.user.name
-%div
-  Other's Albums
-  - @others_albums.each do |album|
-    %p
-      = link_to album.name, album_path(album)
-    %p
-      = album.created_at
-    %p
-      = album.user.name
+
+.row.row-offcanvas.row-offcanvas-right
+  .col-xs-12
+    %h1 My Albums
+  .col-xs-12.col-sm-9
+    %p.pull-right.visible-xs
+      %button.btn.btn-primary.btn-xs{"data-toggle" => "offcanvas", :type => "button"} Toggle nav
+    .row
+      - @albums.each do |album|
+        .col-xs-6.col-lg-4.album{"data-link"=>  album_path(album)}
+          %p
+            Album Name:
+            = album.name
+          %p
+            = album.created_at
+          %p
+            Owner:
+            = album.user.name
+
+.row.row-offcanvas.row-offcanvas-right
+  .col-xs-12
+    %h1 Other's Albums
+  .col-xs-12.col-sm-9
+    %p.pull-right.visible-xs
+      %button.btn.btn-primary.btn-xs{"data-toggle" => "offcanvas", :type => "button"} Toggle nav
+    .row
+      - @others_albums.each do |album|
+        .col-xs-6.col-lg-4.album{"data-link"=>  album_path(album)}
+          %p
+            Album Name:
+            = album.name
+          %p
+            = album.created_at
+          %p
+            Owner:
+            = album.user.name
+
+
