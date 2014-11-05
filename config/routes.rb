@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#show'
 
   resource :dashboard, controller: :dashboard
-  resources :albums
+  resources :albums do
   resources :photos
+  end
 end

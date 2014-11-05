@@ -12,6 +12,10 @@ class AlbumsController < ApplicationController
    end
  end
 
+ def show
+   @album = Album.friendly.find(params[:id])
+ end
+
  private
  def album_params
    params.require(:album).permit(:name)
