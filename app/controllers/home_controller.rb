@@ -6,6 +6,8 @@ class HomeController < ActionController::Base
   def show
     if user_signed_in?
       redirect_to dashboard_path
+    else
+      @photos = Photo.limit(25)
     end
   end
 end
